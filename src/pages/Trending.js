@@ -19,7 +19,7 @@ const Trending = () => {
         absolute right-0 -top-10
         "
           onClick={resetTrendingResult}
-        >
+        >       
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="1em"

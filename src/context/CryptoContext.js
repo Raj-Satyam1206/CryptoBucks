@@ -26,7 +26,7 @@ export const CryptoProvider = ({ children }) => {
 // there can be 3 errors that we can catch from all three functions, also send the error state 
 // through value prop
 
-  const getCryptoData = async () => {
+  const getCryptoData = async () => { 
     //here we will set an empty string for the data error
     setError({ ...error, data: "" });
     setCryptoData();
@@ -38,16 +38,30 @@ export const CryptoProvider = ({ children }) => {
     //     .then((res) => res.json())
     //     .then((json) => json);
 
+
     //   console.log(data);
     //   setTotalPages(data.length);
     // } catch (error) {
     //   console.log(error);
     // }
 
+
+    // the Fetch API is used to make an HTTP request to the CoinGecko API endpoint (https://api.coingecko.com/api/v3/coins/list) to retrieve a list of available cryptocurrencies. Here's a breakdown of each part:
+
+    // fetch(): This is a built-in web API provided by modern browsers for making HTTP requests. It takes a URL as its argument and returns a Promise that resolves to the Response object representing the response to the request.
+
+    // The URL passed to the fetch() function is the endpoint of the CoinGecko API, specifically requesting the list of available cryptocurrencies.
+
+    // .then((res) => res.json()): This is a Promise chain. It waits for the fetch request to complete and then converts the response to JSON format using the json() method of the Response object. This method also returns a Promise.
+
+    // .then((json) => json): This is another Promise chain. It waits for the conversion to JSON to complete and then returns the JSON data. This line effectively resolves the Promise chain and returns the JSON data retrieved from the API.
+
     try {
       const data = await fetch(
         `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&ids=${coinSearch}&order=${sortBy}&per_page=${perPage}&page=${page}&sparkline=false&price_change_percentage=1h%2C24h%2C7d`
-      ).then(async (res) => {
+        // `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&ids=${coinSearch}&order=${sortBy}&per_page=${perPage}&page=${page}&sparkline=false&price_change_percentage=1h%2C24h%2C7d` , API_OPTIONS
+      )
+      .then(async (res) => {
         if (res.ok) {
           return res.json();
         }
@@ -58,6 +72,13 @@ export const CryptoProvider = ({ children }) => {
         throw new Error(errorResponse.error);
       }).then((json) => json);
 
+      // if (!response.ok) {
+      //   const errorResponse = await response.json();
+      //   setError({ ...error, data: errorResponse.error });
+      //   throw new Error(errorResponse.error);
+      // }
+
+      // const data = await response.json();
       // console.log(data);
       setCryptoData(data);
     } catch (error) {
@@ -70,10 +91,11 @@ export const CryptoProvider = ({ children }) => {
     try {
       const data = await fetch(
         `https://api.coingecko.com/api/v3/coins/${coinid}?localization=false&tickers=false&market_data=true&community_data=false&developer_data=true&sparkline=false`
+        // `https://api.coingecko.com/api/v3/coins/${coinid}?localization=false&tickers=false&market_data=true&community_data=false&developer_data=true&sparkline=false` , API_OPTIONS
       )
         .then((res) => res.json())
         .then((json) => json);
-
+      //   const data = await response.json();
       // console.log("CoinData", data);
       setCoinData(data);
     } catch (error) {
@@ -85,10 +107,11 @@ export const CryptoProvider = ({ children }) => {
     try {
       const data = await fetch(
         `https://api.coingecko.com/api/v3/search?query=${query}`
+        // `https://api.coingecko.com/api/v3/search?query=${query}` , API_OPTIONS
       )
         .then((res) => res.json())
         .then((json) => json);
-
+        // const data = await response.json();
       // console.log(data);
       setSearchData(data.coins);
     } catch (error) {

@@ -106,6 +106,9 @@ const TableComponent = () => {
                         style: "currency",
                         currency: currency,
                       }).format(data.current_price)}
+
+                      {/* Intl is a built-in JavaScript object that provides support for internationalization, which involves adapting software to different languages and regional differences. The Intl object provides several constructors and static methods for performing language-sensitive operations such as formatting and parsing numbers, dates, and strings. */}
+                      
                     </td>
                     <td className="py-4">{data.total_volume}</td>
                     <td className="py-4">

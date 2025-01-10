@@ -31,6 +31,7 @@ function CustomTooltip({ payload, label, active, currency = "usd" }) {
 
   return null;
 }
+// We can also customize the tooltip by the Recharts Library
 
 const ChartComponent = ({ data, currency, type }) => {
   return (
@@ -54,8 +55,11 @@ const ChartComponent = ({ data, currency, type }) => {
         <Legend />
       </LineChart>
     </ResponsiveContainer>
+    // This has been copied from the Recharts library and then updated with values
   );
 };
+
+// This CHART component deals with the Recharts library , having LineChart , XAXIS, YAXIS , Tooltip all copied from the Recharts library.
 
 const Chart = ({ id }) => {
   const [chartData, setChartData] = useState();
@@ -68,7 +72,10 @@ const Chart = ({ id }) => {
       try {
         const data = await fetch(
           `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=${days}&interval=daily`
+          // `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=${days}&interval=daily` , API_OPTIONS
         )
+
+        // const data = await response.json();
           .then((res) => res.json())
           .then((json) => json);
 
@@ -80,8 +87,10 @@ const Chart = ({ id }) => {
             [type]: item[1],
           };
         });
+        //The data received from the API call is converted into an "array of objects" in a specific format which we get from the Recharts library.
+        // Timestamp is converted into a readable date
 
-        console.log(convertedData);
+        // console.log(convertedData);
         setChartData(convertedData);
       } catch (error) {
         console.log(error);

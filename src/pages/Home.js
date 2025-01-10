@@ -6,6 +6,9 @@ import { CryptoProvider } from "../context/CryptoContext";
 import { StorageProvider } from "../context/StorageContext";
 import { TrendingProvider } from "../context/TrendingContext";
 
+// "ES7 React/Redux/GraphQL/React-Native snippets"
+// Type rce for a class component or rafce for a functional component.
+
 const Home = () => {
   return (
     <CryptoProvider>

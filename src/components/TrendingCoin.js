@@ -12,8 +12,8 @@ const TrendingCoin = ({ data }) => {
     <div
       className="w-[40%] bg-gray-200 mb-12
     last:mb-0 rounded-lg p-4 relative cursor-pointer
-    hover:bg-gray-100 hover:bg-opacity-40
-    "
+    hover:bg-gray-100 hover:bg-opacity-40"
+
       onClick={() => getCoinDetails(data.id)}
     >
       {data ? (
@@ -56,8 +56,7 @@ const TrendingCoin = ({ data }) => {
             src={data.large}
             alt={data.name}
             className="w-[35%] h-auto rounded-full absolute top-2/4 -right-12
--translate-y-2/4
-"
+-translate-y-2/4"
           />
         </>
       ) : (
@@ -79,3 +78,5 @@ const TrendingCoin = ({ data }) => {
 };
 
 export default TrendingCoin;
+
+//The entire div is kept as "RELATIVE" and the image is kept as "ABSOLUTE" so it comes upwards

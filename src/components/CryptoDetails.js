@@ -44,7 +44,10 @@ const CryptoDetails = () => {
 
   const close = () => {
     navigate("..");
+    //navigate to the previous page
   };
+
+  // console.log("CoinData", data);
 
   return ReactDOM.createPortal(
     <div
@@ -52,10 +55,13 @@ const CryptoDetails = () => {
     backdrop-blur-sm flex items-center justify-center font-nunito
     "
       onClick={close}
+      // div for entire back-screen(blur)
     >
       <div
         className="w-[65%] h-[75%] bg-gray-300 bg-opacity-75 rounded-lg text-white relative"
         onClick={(e) => e.stopPropagation()}
+        // we dont want the onClick ( CLOSE) event to propagate to this, that is, when it clicks on this div, it should not close.
+        // div for the entire crypto details component including chart
       >
         {data ? (
           <div className="flex items-center justify-between h-full w-full p-4">
@@ -66,6 +72,15 @@ const CryptoDetails = () => {
                   src={data.image.large}
                   alt={data.id}
                 />
+                {/* {data.image?.large ? (
+                  <img
+                    className="w-[3rem] h-[3rem] mx-1.5"
+                    src={data.image.large}
+                    alt={data.id || "crypto-image"}
+                  />
+                ) : (
+                  <div className="w-[3rem] h-[3rem] mx-1.5 bg-gray-500 rounded" />
+                )} */}
                 <h1 className="text-xl capitalize font-medium">{data.name}</h1>
                 <span
                   className="text-sm
