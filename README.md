@@ -1,44 +1,83 @@
-# React Website Tutorial: ⭐Build Feature Rich Crypto Screener App with Tailwind CSS
+# CryptoBucks
 
-![GitHub stars](https://img.shields.io/github/stars/codebucks27/CryptoBucks-A-crypto-screener-application?style=social&logo=ApacheSpark&label=Stars)&nbsp;&nbsp;
-![GitHub forks](https://img.shields.io/github/forks/codebucks27/CryptoBucks-A-crypto-screener-application?style=social&logo=KashFlow&maxAge=3600)&nbsp;&nbsp;
-![Github Followers](https://img.shields.io/github/followers/codebucks27.svg?style=social&label=Follow)&nbsp;&nbsp;<br />
+**CryptoBucks** is a cryptocurrency tracking application built with React.js. It enables users to view trending cryptocurrencies, filter and search for coins, and manage saved cryptocurrencies using local storage.
 
-This repository contains final code for Crypto Screener Application in ReactJS. <br />
+## Features
 
-For Demo and Final Code checkout following link👇: <br />
-[Crypto Screener Application in ReactJS](https://devdreaming.com/videos/build-crypto-screener-app-with-react-tailwind-css) <br />
+- View trending cryptocurrencies.
+- Search and filter cryptocurrencies based on various criteria.
+- Detailed coin information with charts and market trends.
+- Pagination for browsing cryptocurrency lists efficiently.
+- Save favorite cryptocurrencies locally for quick access.
 
-Here are the starter code files👇: <br />
-https://github.com/codebucks27/CryptoBucks-A-crypto-screener-application <br />
+## Project Structure
 
-If you want to learn how to create it please follow below tutorial👇: <br />
-[Build Crypto Screener Application in React JS](https://devdreaming.com/videos/build-crypto-screener-app-with-react-tailwind-css)
-[![YouTube Video Views](https://img.shields.io/youtube/views/JPlVb3t6kx8?style=social)](https://youtu.be/cT160dOzpGY)<br />
+### Pages
 
-<h3 align="left">▶ Support me via:</h3><br />
-<p><a href="https://www.buymeacoffee.com/CodeBucks" target="_blank"> <img  src="https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-1.svg" height="50" width="210" alt="CodeBucks" ></img></a></p><br />
+1. **Crypto.js**  
+   Displays cryptocurrency data with filter options and a paginated table.
 
-### Images of The Crypto Screener Website:
+2. **Saved.js**  
+   Manages locally saved cryptocurrencies using local Storage.
 
-![Crypto](https://github.com/codebucks27/CryptoBucks-A-crypto-screener-application/blob/main/Website-Images/Crypto.png)
-![Crypto-CryptoDetails](https://github.com/codebucks27/CryptoBucks-A-crypto-screener-application/blob/main/Website-Images/Crypto-CryptoDetails.png)
-![Trending](https://github.com/codebucks27/CryptoBucks-A-crypto-screener-application/blob/main/Website-Images/Trending.png)
-![Saved](https://github.com/codebucks27/CryptoBucks-A-crypto-screener-application/blob/main/Website-Images/Saved.png)
-![Trending-Mobile](https://github.com/codebucks27/CryptoBucks-A-crypto-screener-application/blob/main/Website-Images/Trending-Mobile.png)
-![Crypto-CryptoDetails-Mobile](https://github.com/codebucks27/CryptoBucks-A-crypto-screener-application/blob/main/Website-Images/Crypto-CryptoDetails-Mobile.png)
-![Crypto-Mobile](https://github.com/codebucks27/CryptoBucks-A-crypto-screener-application/blob/main/Website-Images/Crypto-Mobile.png)
+3. **Trending.js**  
+   Displays trending cryptocurrencies.
 
-### Resources Used in This Project
+4. **Home.js**  
+   Landing page with navigation to Crypto, Saved, and Trending pages.
 
-- Fonts from https://fonts.google.com/ <br />
-- Icons from https://iconify.design/ <br />
-- API from https://www.coingecko.com/en/api <br />
+### Components
 
-### External Libraries used in this project:
+- **Chart:** Displays market data in graphical format.
+- **CryptoDetails:** Shows detailed information about a selected cryptocurrency.
+- **Filter:** Provides search, currency selection, and sorting options.
+- **Logo:** Displays the app's logo.
+- **Navigation:** Navigation bar for seamless page transitions.
+- **Pagination:** Handles pagination for cryptocurrency lists.
+- **Search:** Allows users to search for specific cryptocurrencies.
+- **Table Component:** Renders cryptocurrency data in a tabular format.
+- **TrendingCoin:** Displays individual trending coins.
 
-- [Tailwind css](https://tailwindcss.com/) <br />
-- [recharts](https://recharts.org/en-US/) <br />
+### Context
 
+- **Crypto Context:** Manages global cryptocurrency data, filters, and API calls.
+- **Storage Context:** Handles local storage and saved cryptocurrencies.
+- **Trending Context:** Manages data for trending cryptocurrencies.
 
+## How It Works
 
+### Main Workflow
+
+1. **Routing**  
+   The `index.js` file defines routes for **Crypto**, **Trending**, and **Saved** pages.
+
+2. **Home.js**  
+   Acts as the entry point and integrates navigation using the **Logo** and **Navigation** components.
+
+3. **Crypto.js**
+
+   - Utilizes the **Filter** component for search, sorting, and currency selection.
+   - Displays data using the **Table** and **Pagination** components.
+   - Data is fetched using the CryptoContext API.
+
+4. **Saved.js**
+
+   - Manages saved cryptocurrencies stored locally.
+   - Fetches data for saved coins using the **Storage Context**.
+
+5. **Trending.js**
+   - Displays trending cryptocurrencies fetched from the API.
+
+### APIs
+
+- **CryptoContext** fetches data from the [CoinGecko API](https://www.coingecko.com/en/api).
+- API Endpoints used:
+  - `/coins/markets` for cryptocurrency data.
+  - `/search` for searching cryptocurrencies.
+  - `/coins/{id}` for detailed coin data.
+
+## Future Enhancements
+
+- Add user authentication for personalized features.
+- Implement advanced charts for data visualization.
+- Support for multiple languages and fiat currencies.
