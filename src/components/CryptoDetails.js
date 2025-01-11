@@ -350,7 +350,7 @@ const CryptoDetails = () => {
                   {data.market_cap_rank}{" "}
                 </h3>
 
-                <h3 className="text-white py-1">
+                {/* <h3 className="text-white py-1">
                   <span className="text-gray-100 capitalize mr-1">
                     coinGecko rank:{" "}
                   </span>{" "}
@@ -362,7 +362,7 @@ const CryptoDetails = () => {
                     coinGecko score:{" "}
                   </span>{" "}
                   {data.coingecko_score}{" "}
-                </h3>
+                </h3> */}
               </div>
             </div>
 
@@ -504,3 +504,19 @@ const CryptoDetails = () => {
 };
 
 export default CryptoDetails;
+
+
+/*
+Q. Why are we using ReactDOM.createPortal?
+- Whenever we want popped up screens like when we click on a coin, we get the data and chart of the coin on a popped up screen. For this, it is best to use portals.
+*/
+
+/* 
+Q. How to make the indicator?
+- We have the current price, low 24H, high 24H
+- High - currentPrice = green line
+- Calculate the percentage of green by:
+(high - currentPrice)* 100 / total
+*/
+
+
