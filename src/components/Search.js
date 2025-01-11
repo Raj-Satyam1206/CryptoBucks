@@ -107,3 +107,19 @@ const Search = () => {
 };
 
 export default Search;
+
+
+/*
+Q. Why separated the two functions?
+- We want to make the API call when the key is not pressed for two seconds.
+- If worked in the same function, then everytime we will type in the input , "setSearchText" would update and state will change . With the change in the state, then the component will re render and we get the same many number of API call even with the debounce function.
+- That is why, separate it into two functions, one deals with the debounce, and the other deals with the state changes.
+*/
+
+/*
+Input box  -> Search Text(state)  -> debounce func()  -> API call with query prop  -> searchData (useContext)  ->  
+*/
+
+/*
+List of coins searched  -> coin select  -> set the value of a state(coinSearch)  -> when value of coinSearch state changes, API is called
+*/
