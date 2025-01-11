@@ -1,4 +1,5 @@
 import { createContext, useLayoutEffect, useState } from "react";
+import { API_OPTIONS } from "../components/constants";
 
 // create context object
 export const TrendingContext = createContext({});
@@ -9,11 +10,13 @@ export const TrendingProvider = ({ children }) => {
 
   const getTrendData = async () => {
     try {
-      const data = await fetch(
-        `https://api.coingecko.com/api/v3/search/trending`
-      )
-        .then((res) => res.json())
-        .then((json) => json);
+      const response = await fetch(
+        `https://api.coingecko.com/api/v3/search/trending` , API_OPTIONS
+      );
+        // .then((res) => res.json())
+        // .then((json) => json);
+
+        const data = await response.json();
 
       // console.log(data);
       setTrendData(data.coins);
