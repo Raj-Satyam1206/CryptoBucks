@@ -12,6 +12,7 @@ import {
 } from "recharts";
 import { useContext } from "react";
 import { CryptoContext } from "./../context/CryptoContext";
+import { API_OPTIONS } from "./constants";
 
 function CustomTooltip({ payload, label, active, currency = "usd" }) {
   if (active && payload && payload.length > 0) {
@@ -70,14 +71,14 @@ const Chart = ({ id }) => {
   useLayoutEffect(() => {
     const getChartData = async (id) => {
       try {
-        const data = await fetch(
-          `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=${days}&interval=daily`
-          // `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=${days}&interval=daily` , API_OPTIONS
+        const response = await fetch(
+          // `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=${days}&interval=daily`
+          `https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=usd&days=${days}&interval=daily` , API_OPTIONS
         )
 
-        // const data = await response.json();
-          .then((res) => res.json())
-          .then((json) => json);
+        const data = await response.json();
+          // .then((res) => res.json())
+          // .then((json) => json);
 
         console.log("chart-data", data);
 
@@ -165,3 +166,17 @@ const Chart = ({ id }) => {
 };
 
 export default Chart;
+
+
+
+/* 
+- Recharts library is used to show the chart 
+- The data received from the API call is converted into an "array of objects" in a specific format which we get from the Recharts library.
+-Once the data is converted, it will be in this format : {date:-- , prices:--},{date:-- , prices:--}
+- This converted data is sent to the chart component
+- Initially, in the chart component, do everything with only one type(prices)
+data.prices.map(item=>{return{}});
+And then Generalize this for all the values of the "data" variable which we got from the API.
+- For this take a state variable ("type") , and then set the type whenever it is clicked.
+
+*/
