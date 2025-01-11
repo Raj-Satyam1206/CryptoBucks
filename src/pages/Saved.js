@@ -195,3 +195,5 @@ const Saved = () => {
 };
 
 export default Saved;
+
+// When the star button is clicked , the coin with the id gets stored in the "Local Storage" of the application
