@@ -26,11 +26,16 @@ export const TrendingProvider = ({ children }) => {
   };
 
   const resetTrendingResult = () => {
-    getTrendData();
+    if(!trendData) {
+      getTrendData();
+    }
   };
 
   useLayoutEffect(() => {
-    getTrendData();
+    if(!trendData) {
+      getTrendData();
+    }
+    
   }, []);
 
   return (
