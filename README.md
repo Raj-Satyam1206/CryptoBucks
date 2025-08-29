@@ -1,83 +1,101 @@
-# CryptoBucks
+# 💰 CryptoBucks  
 
-**CryptoBucks** is a cryptocurrency tracking application built with React.js. It enables users to view trending cryptocurrencies, filter and search for coins, and manage saved cryptocurrencies using local storage.
+A modern **cryptocurrency tracking application** built with **React.js** that allows users to explore trending cryptocurrencies, search and filter coins, and manage saved favorites using local storage.  
 
-## Features
+🔗 **Live Demo**: [CryptoBucks on Netlify](https://cryptocurrency-bucks.netlify.app/)  
 
-- View trending cryptocurrencies.
-- Search and filter cryptocurrencies based on various criteria.
-- Detailed coin information with charts and market trends.
-- Pagination for browsing cryptocurrency lists efficiently.
-- Save favorite cryptocurrencies locally for quick access.
+---
 
-## Project Structure
+## 🚀 Features  
+- 🔥 View **trending cryptocurrencies** in real time  
+- 🔎 **Search and filter** cryptocurrencies based on name, market cap, and price  
+- 📊 **Detailed coin information** with charts and market trends  
+- 📑 **Pagination** for browsing large lists of coins  
+- ⭐ Save favorite cryptocurrencies **locally** for quick access  
 
-### Pages
+---
 
-1. **Crypto.js**  
-   Displays cryptocurrency data with filter options and a paginated table.
+## 📂 Project Structure  
 
-2. **Saved.js**  
-   Manages locally saved cryptocurrencies using local Storage.
+### 🖥 Pages  
+- **Home.js** → Landing page with navigation  
+- **Crypto.js** → Displays crypto data with filters and pagination  
+- **Saved.js** → Manage and view locally saved cryptocurrencies  
+- **Trending.js** → Showcases trending cryptocurrencies  
 
-3. **Trending.js**  
-   Displays trending cryptocurrencies.
+### ⚛️ Components  
+- `Chart` → Graphical market data visualization  
+- `CryptoDetails` → Detailed coin info  
+- `Filter` → Search, currency selection & sorting  
+- `Logo` → App logo  
+- `Navigation` → Navbar for smooth transitions  
+- `Pagination` → Efficient page browsing  
+- `Search` → Quick coin search  
+- `Table` → Tabular display of coin data  
+- `TrendingCoin` → Renders each trending coin  
 
-4. **Home.js**  
-   Landing page with navigation to Crypto, Saved, and Trending pages.
+### 🌐 Context  
+- **Crypto Context** → Manages API data, filters, and global states  
+- **Storage Context** → Handles local storage for saved cryptos  
+- **Trending Context** → Manages trending crypto data  
 
-### Components
+---
 
-- **Chart:** Displays market data in graphical format.
-- **CryptoDetails:** Shows detailed information about a selected cryptocurrency.
-- **Filter:** Provides search, currency selection, and sorting options.
-- **Logo:** Displays the app's logo.
-- **Navigation:** Navigation bar for seamless page transitions.
-- **Pagination:** Handles pagination for cryptocurrency lists.
-- **Search:** Allows users to search for specific cryptocurrencies.
-- **Table Component:** Renders cryptocurrency data in a tabular format.
-- **TrendingCoin:** Displays individual trending coins.
+## ⚙️ How It Works  
 
-### Context
+1. **Routing** → `index.js` defines routes for Crypto, Trending, and Saved pages.  
+2. **Crypto.js** → Fetches coin data via **CryptoContext**, integrates search, filter, and pagination.  
+3. **Saved.js** → Fetches and manages locally stored favorite coins via **Storage Context**.  
+4. **Trending.js** → Fetches trending crypto data via **Trending Context**.  
 
-- **Crypto Context:** Manages global cryptocurrency data, filters, and API calls.
-- **Storage Context:** Handles local storage and saved cryptocurrencies.
-- **Trending Context:** Manages data for trending cryptocurrencies.
+---
 
-## How It Works
+## 🌍 API Integration  
+Powered by [CoinGecko API](https://www.coingecko.com/en/api):  
+- `/coins/markets` → Market data  
+- `/search` → Search cryptocurrencies  
+- `/coins/{id}` → Detailed coin data  
 
-### Main Workflow
+---
 
-1. **Routing**  
-   The `index.js` file defines routes for **Crypto**, **Trending**, and **Saved** pages.
+## 🛠 Tech Stack  
+- **React.js** ⚛️  
+- **Context API** for state management  
+- **CoinGecko API** for real-time crypto data  
+- **Local Storage** for persistence  
 
-2. **Home.js**  
-   Acts as the entry point and integrates navigation using the **Logo** and **Navigation** components.
+---
 
-3. **Crypto.js**
+## 📌 Prerequisites  
+Before running this project, ensure you have:  
+- **Node.js** (>= 14.x)  
+- **npm** or **yarn** installed  
 
-   - Utilizes the **Filter** component for search, sorting, and currency selection.
-   - Displays data using the **Table** and **Pagination** components.
-   - Data is fetched using the CryptoContext API.
+---
 
-4. **Saved.js**
+## 🏃 How to Run the Application  
 
-   - Manages saved cryptocurrencies stored locally.
-   - Fetches data for saved coins using the **Storage Context**.
+1. **Clone the repository**  
+   ```bash
+   git clone https://github.com/Raj-Satyam1206/CryptoBucks.git
+   cd CryptoBucks
+   ```  
 
-5. **Trending.js**
-   - Displays trending cryptocurrencies fetched from the API.
+2. **Install dependencies**  
+   ```bash
+   npm install
+   ```  
 
-### APIs
+3. **Start the development server**  
+   ```bash
+   npm start
+   ```  
 
-- **CryptoContext** fetches data from the [CoinGecko API](https://www.coingecko.com/en/api).
-- API Endpoints used:
-  - `/coins/markets` for cryptocurrency data.
-  - `/search` for searching cryptocurrencies.
-  - `/coins/{id}` for detailed coin data.
+4. Open **http://localhost:3000/** in your browser 🎉  
 
-## Future Enhancements
+---
 
-- Add user authentication for personalized features.
-- Implement advanced charts for data visualization.
-- Support for multiple languages and fiat currencies.
+## 🔮 Future Enhancements  
+- 🔐 Add **user authentication** for personalization  
+- 📈 Implement **advanced charting & analytics**  
+- 🌎 Support for **multiple languages & fiat currencies**  
